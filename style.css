@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&family=Poppins:wght@600&family=Ubuntu:wght@300&display=swap');
+:root{
+--kanit: 'Kanit', sans-serif;
+--popins: 'Poppins', sans-serif;
+--Ubantu: 'Ubuntu', sans-serif;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background:url('./TEmp/question_marks_background.jpg');
+    background-size: cover;
+    height: 100vh;
+    overflow-x: hidden;
+    display: grid;
+    
+  grid-template-columns: 1fr .7fr; 
+  grid-template-rows: 1fr;
+    /* grid-template-columns: 1fr 1fr; */
+    /* grid-template-rows: 1fr; */
+    grid-gap: 4px;
+    background-color: #ffff;
+    /* filter:blur(.5px); */
+}
+
+.designing{
+    display: inline-block;
+    /* margin-left: 20px; */
+    margin: 15px 0px 15px 15px;
+    /* background-color: #aaf39a; */
+    background: url('./TEmp/17973871.jpg');
+    background-position:right;
+    opacity: 60%;
+border-top-right-radius:38px;
+border-bottom-left-radius:38px;
+    position: relative;
+}
+.text{
+    margin: 40px 0 10px 20px;
+    font-size: 40px;
+    font-family: var(--popins);
+    letter-spacing: 7px;
+    text-align: center;
+    width: 250px;
+    border-right:1px solid ;
+    white-space: nowrap;
+    overflow: hidden;
+    animation-name: typing, cursor;
+  animation-duration: 6s, 0.6s;
+  animation-timing-function: steps(8), step-end;
+  animation-iteration-count: infinite, infinite;
+  animation-direction: normal, alternate;
+}
+.text2{
+    margin: 20px 0 10px 20px;
+    font-size: 40px;
+    font-family: var(--popins);
+    letter-spacing: 7px;
+    text-align: center;
+    width: 310px;
+    border-right:1px solid ;
+    white-space: nowrap;
+    overflow: hidden;
+    animation-name: typing, cursor;
+  animation-duration: 6s, 0.6s;
+  animation-timing-function: steps(17), step-end;
+  animation-iteration-count: infinite, infinite;
+  animation-direction: normal, alternate;
+}
+@keyframes cursor{
+    20%{border-color: transparent;}
+}
+@keyframes typing{
+    from {width: 0;}
+}
+.animat{
+    height: 150px;
+width: 200px; 
+margin-left: 30px;
+   font-size: 24px;
+    color: #3498db;
+    transform: rotate(0deg);
+    transition: transform 1s ease-in-out, color 1s ease-in-out;
+    cursor: pointer;
+     animation: rotateAndBlink 4s linear infinite;
+}
+@keyframes rotateAndBlink {
+    0%, 100% {
+        transform: rotate(0deg);
+        opacity: 100;
+    }
+    50% {
+        transform: rotate(60deg);
+        opacity:0 ;
+    }
+}
+
+/* login page */
+
+.diver{ 
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.header{
+    align-self: center;
+    border-top-left-radius:10%;
+    border-bottom-right-radius:10%;
+    /* background-color: #8db775; */
+    flex: .3; 
+    height: 800px;
+    width:400px;
+    margin-top:150px;    
+    /* border: .5px solid rgb(0, 0, 0); */
+}
+.header h1{
+    align-items: center;
+    background: url('./TEmp/dialogueBOX.png');
+    background-size: cover;
+    background-position: center;
+    flex: 1; 
+    font-size: 50px;
+    /* margin: 15px; */
+    font-family: var(--kanit);
+    text-align: center;
+    color: black;
+}
+
+.signup{
+    padding: 30px;
+    background-color: #2a4252;
+    align-items: center;
+    flex: 1;
+    border: .5px solid rgb(0, 0, 0);
+    height: 100px;
+    width:510px;
+    margin-bottom: 280px;
+    margin-top: 10px;
+    text-align: center;
+}
+.signup input{
+
+    padding:9px;
+    margin: 5px;
+    width: 450px;
+    height: 30px;
+    border: none;
+    border-radius: 6px;
+
+}
+.signup button{
+    cursor: pointer;
+    padding: 5px;
+    font-size: 410x;
+    width: 120px;  
+    margin-top:10px ;
+    height:45px; 
+    border-radius: 7px;
+}
+.factsdis{
+    margin:  80px 20px 0px 220px;
+ 
+    height: 50px;
+    width: 400px;
+}
+.factsdis h2 {
+    font-weight: 300;
+    font-size: 40px;
+    font-family: var(--Ubantu);
+}

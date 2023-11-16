@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizGround - Quiz Interface</title>
+</head>
+<style>
+    /* Your CSS styles for the Quiz Interface */
+</style>
+<body>
+    <div class="discription">
+        <!-- Quiz content goes here -->
+    </div>
+    
+    <script>
+        document.addEventListener(' ', function () {
+            const quizArray = JSON.parse(localStorage.getItem('QuizArray')) || [];
+            const discription = document.querySelector('.discription');
+            
+            if (quizArray.length === 0) {
+                discription.innerHTML = 'No quiz questions available.';
+            } else {
+                // Display quiz questions in the interface
+                discription.innerHTML = '';
+                quizArray.forEach(function (questionData, index) {
+                    const question = questionData.queInput;
+                    const options = questionData.opts;
+                    
+                    const questionDiv = document.createElement('div');
+                    questionDiv.innerHTML = `
+                        <div class="headeing">
+                            <div class="title"> QuizApp</div>
+                            <div class="timer">
+                                <div class="time_left_txt">Time Left</div>
+                                <div class="timer_sec">15</div>
+                            </div>
+                        </div>
+                        <div class="time_line"></div>
+                        <section>
+                            <div class="que_text">
+                                <h1>${question}</h1>
+                            </div>
+                            <div class="option_list">
+                                <h3>${options[0]}</h3>
+                                <h3>${options[1]}</h3>
+                                <h3>${options[2]}</h3>
+                                <h3>${options[3]}</h3>
+                            </div>
+                        </section>
+                    `;
+                    
+                    discription.appendChild(questionDiv);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

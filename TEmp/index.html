@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <style>
+        /* Add your CSS styles here */
+        body{
+        background:url('./TEmp/mountain.jpg') ;
+        background-repeat: no-repeat;
+        background-size: cover ;
+        /* opacity:80%; */
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        width: 100%;
+        /* overflow-x: hidden;
+        overflow-y: hidden;*/
+    }
+    .discription{
+         color: #000000;
+        align-self: center;
+       margin: 15px;
+       /* padding: 50px; */
+        background-color: rgb(0, 73, 67);
+        /* color: aliceblue; */
+        width: 850px;
+        height: 550px;
+     /* width: 100%; */
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    position: relative;
+    }
+    .discription .heading{
+         /* position: relative; */
+    z-index: 2;
+    height: 70px;
+    padding: 0 30px;
+    background: #fff;
+    border-radius: 5px 5px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.1);
+    }
+    .discription .title {
+    color: #000000;font-size: 20px;
+    font-weight: 600;
+}
+.discription .timer{
+    color: #004085;
+    background: #cce5ff;
+    border: 1px solid #b8daff;
+    height: 45px;
+    padding: 0 8px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 145px;
+}
+.discription .time_left_txt{
+    /* border: 1px solid black; */
+    font-weight: 400;
+    font-size: 17px;
+    user-select: none;
+}
+.discription .timer_sec {
+    font-size: 18px;
+    font-weight: 500;
+    height: 30px;
+    width: 45px;
+    color: #fff;
+    border-radius: 5px;
+    line-height: 30px;
+    text-align: center;
+    background: #343a40;
+    border: 1px solid #343a40;
+    user-select: none;
+}
+.discription .time_line {
+
+    /* position: absolute; */
+    bottom: 0px;
+    left: 0px;
+    height: 3px;
+    background: #3414bc;
+}
+.info_box{
+    overflow: hidden;
+       color: #000000;
+        align-self: center;
+       /* margin: 15px; */
+       /* padding: 50px; */
+       /* margin-top: 40px; */
+        background-color: rgb(0, 73, 67);
+
+        width: 850px;
+        height: 600px;
+     text-align: center;
+    background-color: #f0f0f0;  
+    border-radius: 10px;
+    /* position: relative; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        opacity: 1;
+        z-index: 1;
+        pointer-events: auto;   
+        transform: translate(-50%, -50%) scale(1);
+}
+.info-title{
+    margin-top: 50px;
+}
+
+.info-list{
+    padding: 10px;
+    /* font-weight: 600; */
+    color: #000000;
+     margin: 5px 0;
+    font-size: 17px;
+    line-height-step: 10px;
+}
+.info{
+    font-size: 24px;
+    
+}
+.buttons{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    padding: 0 230px;
+    border-top: 1px solid lightgrey;
+}
+.quit , .restart {
+    /* height: 60px; */
+    height: 40px;
+    padding: 0 13px;
+    font-size: 18px;
+    font-weight: 400;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    color: #000000;
+    border-radius: 5px;
+    background: #f6ff7e;
+    border: 1px solid #f6ff7e58;
+    /* line-height: 10px; */
+    /* opacity: 0;
+    pointer-events: none; */
+    /* transform: scale(0.95);
+    transition: all 0.3s ease; */
+}
+section {
+    padding: 25px 30px 20px 30px;
+    background: #ffffff;
+} */
+
+section .que_text h1 {
+    font-family: var(--kanit);
+    color: #000000;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+section .option_list {
+    padding: 20px 0px;
+    display: block;
+}
+
+section .option_list .option {
+    color: #000000;
+    background: aliceblue;
+    border: 1px solid #84c5fe;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-size: 17px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+section .option_list .option:last-child {
+    margin-bottom: 0px;
+}
+
+section .option_list .option:hover {
+    color: #004085;
+    background: #cce5ff;
+    border: 1px solid #b8daff;
+}
+        /* Add more CSS styles as needed */
+    </style>
+</head>
+<body>
+    <!-- Info Box -->
+    <div class="info_box">
+        <div class="info-title"><span>Rules of this Quiz Game</span></div>
+        <div class="info-list">
+            <div class="info">1. You only have <span>15 seconds</span> per question.</div>
+            <div class="info">2. Once you select your answer, it can't be undone.</div>
+            <div class="info">3. You can't select any option once time goes off.</div>
+            <div class="info">4. You can't exit from the Quiz Game while you're playing.</div>
+            <div class="info">5. You'll get points on the basis of your correct answers.</div>
+        </div>
+        <div class="buttons">
+            <button class="quit">Exit Quiz</button>
+            <button class="restart">Continue</button>
+        </div>
+    </div>
+
+    <div class="description">
+        <div class="heading">
+            <div class="title">QuizApp</div>
+            <div class="timer">
+                <div class="time_left_txt">Time Left</div>
+                <div class="timer_sec">15</div>
+            </div>
+        </div>
+        <div class="time_line"></div>
+        <section>
+            <div class="que_text">
+                <h1>What does HTML stand for?</h1>
+            </div>
+            <div class="option_list">
+                <div class="option"><span>Hyper Text Preprocessor</span></div>
+                <div class="option"><span>Hyper Text Markup Language</span></div>
+                <div class="option"><span>Hyper Text Multiple Language</span></div>
+                <div class="option"><span>Hyper Tool Multi Language</span></div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Selecting all required elements
+        const start_btn = document.querySelector(".restart");
+        const info_box = document.querySelector(".info_box");
+        const exit_btn = info_box.querySelector(".buttons .quit");
+        const continue_btn = info_box.querySelector(".buttons .restart");
+        const quiz_box = document.querySelector(".description");
+        const option_list = document.querySelector(".option_list");
+        const time_line = document.querySelector(".time_line");
+        const timeText = document.querySelector(".timer .time_left_txt");
+        const timeCount = document.querySelector(".timer .timer_sec");
+
+        let timeValue = 15;
+        let que_count = 0;
+        let que_numb = 1;
+
+        // If restartQuiz button clicked
+        start_btn.onclick = () => {
+            info_box.style.display = "none";
+            startTimer(15);
+            startTimerLine();
+            showQuestions(que_count);
+            queCounter(que_numb);
+        }
+
+        // If exitQuiz button clicked
+        exit_btn.onclick = () => {
+            if (window.confirm("Do you want to close this tab?")) {
+                window.close();
+            }
+        }
+
+        function showQuestions(index) {
+            const que_text = document.querySelector(".que_text");
+            que_text.innerHTML = "<h1>" + questions[index].question + "</h1>";
+            let option_tag = "";
+            for (let i = 0; i < questions[index].options.length; i++) {
+                option_tag += `<div class="option"><span>${questions[index].options[i]}</span></div>`;
+            }
+            option_list.innerHTML = option_tag;
+        }
+
+        function startTimer(time) {
+    var counter; // Declare the counter variable
+    counter = setInterval(timer, 1000);
+
+    function timer() {
+        var timeCount = document.querySelector('.timer_sec'); // Change to querySelector
+        var timeText = document.querySelector('.time_left_txt'); // Change to querySelector
+
+        timeCount.textContent = time;
+        time--;
+        if (time < 10) { 
+            timeCount.textContent = "0" + time; // Simplify adding a leading 0
+        }
+        if (time < 1) {
+            clearInterval(counter);
+            timeText.textContent = "Time Off";
+            var option_list = document.querySelector('.option_list');
+            var allOptions = option_list.children.length;
+            var correcAns = questions[que_count].answer;
+    
+            for (var i = 0; i < allOptions; i++) {
+                if (option_list.children[i].textContent == correcAns) {
+                    option_list.children[i].classList.add("option", "correct"); // Update class
+                    option_list.children[i].insertAdjacentHTML("beforeend", "<i class='fas fa-check-circle'></i>"); // Add a checkmark icon
+                    console.log("Time Off: Auto selected correct answer.");
+                }
+            }
+            // Disable all options by adding a class
+            for (var i = 0; i < allOptions; i++) {
+                option_list.children[i].classList.add("disabled");
+            }
+        }
+    }
+}
+function startTimerLine() {
+    var counterLine; // Declare the counterLine variable
+    var time_line = document.querySelector('.time_line'); // Change to querySelector
+    var time = 0;
+    counterLine = setInterval(timer, 23);
+
+    function timer() {
+        time += 1;
+        time_line.style.width = (time / 550) * 100 + "%";
+        if (time > 549) {
+            clearInterval(counterLine);
+        }
+    }
+}
+
+        function queCounter(index) {
+            // Update the question counter
+        }
+
+        // Sample questions array
+        let questions = [
+            {
+                numb: 1,
+                question: "What does HTML stand for?",
+                answer: "Hyper Text Markup Language",
+                options: [
+                    "Hyper Text Preprocessor",
+                    "Hyper Text Markup Language",
+                    "Hyper Text Multiple Language",
+                    "Hyper Tool Multi Language"
+                ]
+            },
+            {
+        numb: 2,
+        question: "What does CSS stand for?",
+        answer: "Cascading Style Sheet",
+        options: [
+            "Common Style Sheet",
+            "Colorful Style Sheet",
+            "Computer Style Sheet",
+            "Cascading Style Sheet"
+        ]
+    },
+    {
+        numb: 3,
+        question: "What does PHP stand for?",
+        answer: "Hypertext Preprocessor",
+        options: [
+            "Hypertext Preprocessor",
+            "Hypertext Programming",
+            "Hypertext Preprogramming",
+            "Hometext Preprocessor"
+        ]
+    },
+    {
+        numb: 4,
+        question: "What does SQL stand for?",
+        answer: "Structured Query Language",
+        options: [
+            "Stylish Question Language",
+            "Stylesheet Query Language",
+            "Statement Question Language",
+            "Structured Query Language"
+        ]
+    },
+    {
+        numb: 5,
+        question: "What does XML stand for?",
+        answer: "extensible Markup Language",
+        options: [
+            "executable Multiple Language",
+            "exTra Multi-Program Language",
+            "extensible Markup Language",
+            "examine Multiple Language"
+        ]
+    }
+
+            // Add more questions here
+        ];
+    </script>
+</body>
+</html>

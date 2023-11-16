@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizTemplete.html</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit&family=Poppins:wght@600&family=Ubuntu:wght@300&display=swap');
+:root{
+    --kanit: 'Kanit', sans-serif;
+    --popins: 'Poppins', sans-serif;
+    --Ubantu: 'Ubuntu', sans-serif;
+}
+body{
+    padding-top: px;
+    padding-left: 60px;
+    padding-right: 60px;
+    /* margin: 70px; */
+
+}
+#heading{text-align: center;
+    /* padding: 50px; */
+    font-size: 70px;
+    /* margin: 60px; */
+    font-family: var(--kanit);
+    align-items: center;
+    /* margin-top: 30px; */
+    /* border: .5px solid black; */
+    border-radius:50%;
+}
+.selection{
+
+    border: .5px solid black;
+  height:200px ;
+  align-items: center;
+  padding: 60px;
+    display: flex;
+    justify-content: space-around;
+}
+.PredifinedQuizes{
+   font-family: var(--Ubantu);
+   border-radius: 6px;
+   padding: 30px;
+   /* align-items: center; */
+
+    border: .5px solid black;
+  height:100px ;
+}
+.PredifinedQuizes button{
+    text-align: center;
+    align-items: center;
+    width: 140px;
+    height: 35px;
+    margin-left: 35px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.Quiz-Maker{
+    font-family: var(--Ubantu);
+    border: .5px solid black;
+border-radius: 6px;
+padding: 30px;
+/* align-items: center; */
+ height:100px ;
+}
+.Quiz-Maker button{
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 35px;
+    width: 140px;
+    height: 35px;
+    border: none;
+    border-radius: 6px;
+}
+    </style>
+</head>
+<body>
+    <h1 id="heading"> QuizApp </h1>
+    <div class="selection">
+    <div class="PredifinedQuizes">
+       <form action="PreDifinedQuizes.html"> <h1>Start Your Quiz</h1>
+        <Button>Start Quiz</Button></form>
+    </div>
+    <div class="Quiz-Maker">
+       <form action="Quiz-Maker.html"> <h1>Make New Quiz</h1>
+        <button>Start Editing</button></form>
+    </div>
+</div>
+</body>
+</html>

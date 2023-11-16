@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz-Maker</title>
+    <style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Kanit&family=Poppins:wght@600&family=Ubuntu:wght@300&display=swap');
+:root{
+--kanit: 'Kanit', sans-serif;
+--popins: 'Poppins', sans-serif;
+--Ubantu: 'Ubuntu', sans-serif;
+}
+*{
+    /* scrollbar-color: initial; */
+    margin:0;
+    padding:0;
+}
+body{
+    
+/* justify-content: space-between;
+flex-direction: row;
+align-items: center; */
+ height: 100vh;
+ margin: 0;
+    /* display: flex; */
+     background: url('./TEmp/whitepattern.jpg');
+    background-size: cover;
+background-repeat: no-repeat;
+
+}
+.editor{
+    /* user-select: none; */
+    margin-right: 70px;
+    padding: 50px;
+    display: flex;
+    justify-content: space-between;
+    /* visibility: hidden; */
+}
+/* Discription */
+/* .description {
+pointer-events: auto;   
+transform: translate(-50%, -50%) scale(1);
+border: .5px solid black;
+background-color: rgb(255, 255, 255);
+width: 350px;
+height: 200px;
+align-items: center;
+visibility: hidden;
+}
+.description h1 {
+text-align: center;
+}
+#confirm {
+margin-left: 90px;
+} */
+/* Siepanel */
+.editor .navbar-sidepanel{
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+
+    scroll-behavior: auto;
+    position: sticky;
+    /* margin-left: -50px; */
+    margin-top: 45px;
+    overflow-y:scroll;
+    border-radius: 7px;
+    height: 400px;
+    padding-top: 7px;
+    width: 200px;
+    border: .5px solid black;
+    /* left:0px; */
+}
+.navbar-sidepanel ul  a{
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: space-between;
+    padding: 2%;
+    /* margin-left: 24px; */
+    font-weight: 300;
+    font-size: 29px;
+    text-decoration: none;
+    color: black;
+}
+.container
+{ 
+    /* margin-top: -507px; */
+    /* margin-left: 80px; */
+    margin-top: 40px;
+    border: .25px solid rgb(0, 0, 0);
+    width: 750px;
+    height: 350px;  
+    padding: 1rem;
+    border-radius: 7px;
+}
+.container #Question{
+    width:700px;
+    height: 30px;
+    border-radius: 3px;
+    font-size: 20px;
+    padding: .23rem;
+}
+.container input{
+    width:500px;
+    height: 30px;
+    border-radius: 3px;
+    font-size: 20px;
+    padding: .23rem;
+}
+.options input{
+    margin: 5px;
+}
+.container #button , #startQuiz {
+
+text-align: center;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 35px;
+    width: 140px;
+    height: 35px;
+    border: none;
+    border-radius: 6px;
+}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.4/html2canvas.min.js"></script>
+
+</head>
+    <body>
+    <div class="editor">
+        <!-- Sidepanel -->
+        <div class="navbar-sidepanel">
+            <ul >
+            <a  id="Que_No" href="#">Question 1</a> <br>
+            </ul>
+        </div>
+        <!-- Questions & Options -->
+        <div class="container">
+            <div class="question">
+                <h2>Question</h2>
+                <input id="Question" type="text" ><br>
+            </div>
+            <div class="options">
+                    <h2>Options</h2>
+                <input id="opt1" type="text" ><br>
+                <input id="opt2" type="text" ><br>
+                <input id="opt3" type="text" ><br>
+                <input id="opt4" type="text" ><br>
+            </div>
+            <button id="button">Submit</button>
+            <button id="startQuiz">Start Quiz</button>
+        </div>
+    </div>
+     <!-- Discription -->
+     <!-- <div class="description" id="elementToToggle">
+        <h1>Description</h1><hr>
+        <ul>
+            <li><strong>Question</strong>: Enter Your Question</li>
+            <li><strong>Options</strong>: Enter Your Options</li>
+            <li><strong>Answer</strong>: Enter Your Answer</li>
+            <br>
+            <button id="confirm">Confirm</button>
+        </ul>
+    </div> -->
+    <!-- JS starts here -->
+    <script src="Quiz-Maker.js"></script>
+
+</body> 
+</html>

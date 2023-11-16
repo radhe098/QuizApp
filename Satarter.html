@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizGround</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit&family=Poppins:wght@600&family=Ubuntu:wght@300&display=swap');
+        :root {
+            --kanit: 'Kanit', sans-serif;
+            --popins: 'Poppins', sans-serif;
+            --Ubantu: 'Ubuntu', sans-serif;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: url('./TEmp/mountain.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 80%;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            /* overflow-x: hidden; */
+            /* overflow-y: hidden; */
+        }
+        .discription {
+            color: #000000;
+            align-self: center;
+            margin: 15px;
+            /* background-color: rgb(0, 73, 67); */
+            color: aliceblue;
+            width: 850px;
+            height: 550px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            position: relative;
+        }
+        .discription .headeing {
+            z-index: 2;
+            height: 70px;
+            padding: 0 30px;
+            background: #fff;
+            border-radius: 5px 5px 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.1);
+        }
+        .discription .title {
+            color: #000000;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .discription .timer {
+            color: #004085;
+            background: #cce5ff;
+            border: 1px solid #b8daff;
+            height: 45px;
+            padding: 0 8px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 145px;
+        }
+        .discription .time_left_txt {
+            font-weight: 400;
+            font-size: 17px;
+            user-select: none;
+        }
+        .discription .timer_sec {
+            font-size: 18px;
+            font-weight: 500;
+            height: 30px;
+            width: 45px;
+            color: #fff;
+            border-radius: 5px;
+            line-height: 30px;
+            text-align: center;
+            background: #343a40;
+            border: 1px solid #343a40;
+            user-select: none;
+        }
+        .discription .time_line {
+            bottom: 0px;
+            left: 0px;
+            height: 3px;
+            background: #3414bc;
+        }
+        .info_box {
+            overflow: hidden;
+            color: #000000;
+            align-self: center;
+            background-color: rgb(0, 73, 67);
+            width: 850px;
+            height: 600px;
+            text-align: center;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            opacity: 1;
+            z-index: 1;
+            pointer-events: auto;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .info-title {
+            margin-top: 50px;
+        }
+        .info-list {
+            padding: 10px;
+            color: #000000;
+            margin: 5px 0;
+            font-size: 17px;
+            line-height-step: 10px;
+        }
+        .info {
+            font-size: 24px;
+        }
+        .buttons {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 230px;
+            border-top: 1px solid lightgrey;
+        }
+        .quit, .restart {
+            height: 40px;
+            padding: 0 13px;
+            font-size: 18px;
+            font-weight: 400;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            color: #000000;
+            border-radius: 5px;
+            background: #f5ef7b;
+            border: 1px solid #3414bc;
+        }
+        section .que_text h1{
+            margin: 20px;
+            color: #000000;
+            font-size: 25px;
+            font-weight: 600;
+        }
+        section .option_list {
+            color: #000000;
+            padding: 20px 0px;
+            display: block;
+        }
+        section .option_list h3 {
+            background: aliceblue;
+            border: 1px solid #84c5fe;
+            border-radius: 5px;
+            padding: 8px 15px;
+            font-size: 17px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        section .option_list .h3:last-child {
+            margin-bottom: 0px;
+        }
+        section .option_list h3:hover {
+            color: #004085;
+            background: #cce5ff;
+            border: 1px solid #b8daff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Info Box -->
+    <div class="info_box">
+        <div class="info-title"><span>Rules of this Quiz Game</span></div>
+        <div class="info-list">
+            <div class="info">1. You only have <span>15 seconds</span> per question.</div>
+            <div class="info">2. Once you select your answer, it can't be undone.</div>
+            <div class="info">3. You can't select any option once time goes off.</div>
+            <div class="info">4. You can't exit from the Quiz Game while you're playing.</div>
+            <div class="info">5. You'll get points on the basis of your correct answers.</div>
+        </div>
+        <div class="buttons">
+            <button class="quit">Exit Quiz</button>
+            <button class="restart">Continue</button>
+        </div>
+    </div>
+    <div class="discription">
+        <div class="headeing">
+            <div class="title">QuizApp</div>
+            <div class="timer">
+                <div class="time_left_txt">Time Left</div>
+                <div class="timer_sec">15</div>
+            </div>
+        </div>
+        <div class="time_line"></div>
+        <section>
+            <div class="que_text">
+                <h1>What is your name ?</h1>
+            </div>
+            <div class="option_list">
+
+           
+            <div id="op1">
+                <h3>Option1</h3>
+            </div>
+                <div id="op2">
+                <h3>Option2</h3>
+            </div>
+                <div id="op3">
+                <h3>Option3</h3>
+            </div>
+                <div id="op4">
+                <h3 >Answer</h3>
+                </div>
+            </div>
+            </div>
+        </section>
+    </div>
+    <script>
+        // import Quiz-Maker.js
+
+const sessionstring = localStorage.getItem('Quizarray'); // Retrieve the array from local storage
+let Quizarray;
+
+if (sessionstring) {
+    Quizarray = JSON.parse(sessionstring);
+}
+
+var copiedArray = Quizarray;
+
+// Step 3: Copy the elements from the local storage array to the new array
+// if (Array.isArray(storedArray)) {
+//     copiedArray = [...storedArray]; // Using the spread operator to create a shallow copy
+// }
+// Now, 'copiedArray' contains a copy of the array from local storage
+        // 
+        // var sessionstring = sessionStorage.getItem('Quizarray')
+        // var setArr =[];
+        // // var disArr = JSON.parse(sessionstring);
+        // if (Array.isArray(storedArray)) {
+        // setArr = [...sessionstring];}
+    var timerSec = document.getElementsByClassName('timer_sec');
+    var Question = document.querySelector('.que_text h1');
+    var Optionlist = document.querySelector('.option_list h3');
+var timeline = document.getElementsByClassName('timer_line');
+var info_box = document.getElementsByClassName('info_box');
+var discription = document.getElementsByClassName('discription');
+var restartBTN = document.querySelector('.restart');
+var QuitBTN = document.querySelector('.quit');
+var optionno1 = document.querySelector("#op1 h3");
+var optionno2 = document.querySelector("#op2 h3");
+var optionno3 = document.querySelector("#op3 h3");
+
+
+var body = document.getElementsByTagName('body')[0]; 
+
+ //  rstartBTN logic
+restartBTN.addEventListener('click', function () {
+    if (info_box[0]) { // Access the first element in the collection
+      info_box[0].style.visibility = "hidden";
+    }
+    startTimer(15);
+    startTimerLine();
+  });
+//   QuitBTN logic
+   QuitBTN.addEventListener("click",function(){
+    if (window.confirm("Do you want to close this tab?")) {
+        window.history.back(); 
+    }
+   })
+
+  function startTimer(time) {
+    var counter; // Declare the counter variable
+    counter = setInterval(timer, 1000);
+
+    function timer() {
+        var timeCount = document.querySelector('.timer_sec'); // Change to querySelector
+        var timeText = document.querySelector('.time_left_txt'); // Change to querySelector
+
+        timeCount.textContent = time;
+        time--;
+        if (time < 10) { 
+            timeCount.textContent = "0" + time; // Simplify adding a leading 0
+        }
+        if (time < 1) {
+            clearInterval(counter);
+            timeText.textContent = "Time Off";
+            var option_list = document.querySelector('.option_list');
+            var allOptions = option_list.children.length;
+            var correcAns = copiedArray[que_count].answer;
+            
+            for (var i = 0; i < allOptions; i++) {
+                if (option_list.children[i].textContent == correcAns) {
+                    option_list.children[i].classList.add("option", "correct"); // Update class
+                    option_list.children[i].insertAdjacentHTML("beforeend", "<i class='fas fa-check-circle'></i>"); // Add a checkmark icon
+                    console.log("Time Off: Auto selected correct answer.");
+                }
+            }
+
+            // Disable all options by adding a class
+            for (var i = 0; i < allOptions; i++) {
+                option_list.children[i].classList.add("disabled");
+            }
+        }
+    }
+}
+
+
+function startTimerLine() {
+    var counterLine; // Declare the counterLine variable
+    var time_line = document.querySelector('.time_line'); // Change to querySelector
+    var time = 0;
+
+    counterLine = setInterval(timer, 23);
+
+    function timer() {
+        time += 1;
+        time_line.style.width = (time / 550) * 100 + "%";
+        if (time > 540) {
+            clearInterval(counterLine);
+        }
+    }
+}
+// const StoredData = JSON.parse(localStorage.getItem("myarray"));
+document.addEventListener("DOMContentLoaded", function () {
+    // Your code here
+    Question.textContent = Quizarray[0].Ques;   
+    optionno1.textContent = Quizarray[0].Opts[0];
+    optionno2.textContent = Quizarray[0].Opts[1];
+    optionno3.textContent = Quizarray[0].Opts[2];
+    // document.getElementById("op4").textContent = Quizarray[0].opts[3];
+});
+
+    </script>
+</body>
+</html>
