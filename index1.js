@@ -2,17 +2,17 @@ var username = document.getElementById('UserName');
 var password = document.getElementById('pass');
 var Submitbtn = document.getElementById('SignUp');
 var facts = document.querySelector('.factsdis h2')
-let Uname = /radhe098/;
-let Passw = /Admin@123/;
+// let Uname = /radhe098/;
+// let Passw = /Admin@123/;
 const newPageUrl ="MakeSelection.html";
 
 Submitbtn.addEventListener("click",function(){
-    if(Uname.test(username.value) && Passw.test(password.value)){
+    // if(Uname.test(username.value) && Passw.test(password.value)){
         window.location.href = newPageUrl;
-    }
-    else{
-        alert("Invalid username");
-    }
+    // }
+    // else{
+    //     alert("Invalid username");
+    // }
 });
 
 var quotes=[
